@@ -7,6 +7,6 @@ COPY patches /patches
 RUN apk --no-cache add --virtual .temp  patch &&\
 	cd /composer/vendor/deployer/deployer && \
 	find /patches -name '*.patch' -exec patch -p1 -i {} \; && \
-	apk del .temp
+	apk --no-cache del .temp
 
 ENTRYPOINT ["dep"]
